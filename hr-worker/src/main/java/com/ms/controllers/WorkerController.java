@@ -37,12 +37,6 @@ public class WorkerController {
 	public ResponseEntity<Worker> findById(@PathVariable("id") Long id){
 		
 		
-		try {
-			Thread.sleep(3000L);
-		}catch(InterruptedException e ) {
-			e.printStackTrace();
-		}
-		
 		logger.info("PORT = " + env.getProperty("local.server.port"));
 		Worker obj = repo.findById(id).get();
 		return ResponseEntity.ok(obj);
